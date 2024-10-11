@@ -10,6 +10,7 @@ import CategoryModel from './CategoryModel';
 import ImageModel from './ImageModel';
 import { updateModelById } from '@/app/api/Model';
 import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
+import { updateProductById } from '@/app/api/Product';
 
 interface ModelCardProps {
   model: ModelProps,
@@ -36,6 +37,11 @@ const ModelCard = ({ model, categoryList, setReload } : ModelCardProps) => {
         products: model.products
       }
       await updateModelById(body)
+      if (model.products.length > 0) {
+        model.products.forEach(value=>{
+          updateProductById({_id: value,name: modelName, price: price, image: modelImage[0]})
+        })
+      }
       setEditMode(prev=>!prev)
       setReload(prev=>!prev)
     }

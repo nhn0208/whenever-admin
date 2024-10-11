@@ -4,11 +4,45 @@ import { ArrowUpDown } from "lucide-react"
 import { ProductProps } from "@/lib/interface"
 import { ColumnDef } from "@tanstack/react-table"
 import { Button } from "../ui/button"
+import { Checkbox } from "@/components/ui/checkbox"
+import { formatToVND } from "@/lib/format"
 
 export const columns: ColumnDef<ProductProps>[] = [
+  // {
+  //   id: "select",
+  //   header: ({ table }) => (
+  //     <Checkbox
+  //       checked={
+  //         table.getIsAllPageRowsSelected() ||
+  //         (table.getIsSomePageRowsSelected() && "indeterminate")
+  //       }
+  //       onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+  //       aria-label="Select all"
+  //     />
+  //   ),
+  //   cell: ({ row }) => (
+  //     <Checkbox
+  //       checked={row.getIsSelected()}
+  //       onCheckedChange={(value) => row.toggleSelected(!!value)}
+  //       aria-label="Select row"
+  //     />
+  //   ),
+  //   enableSorting: false,
+  //   enableHiding: false,
+  // },
   {
     accessorKey: "name",
-    header: "Name",
+    header: ({ column }) => {
+      return (
+        <Button
+         variant={"ghost"}
+         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Name
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      )
+    },
   },
   {
     accessorKey: "size",
@@ -23,6 +57,9 @@ export const columns: ColumnDef<ProductProps>[] = [
         </Button>
       )
     },
+    cell: ({ row }) => {
+      return <div className="text-center">{row.getValue('size')}</div>
+    }
   },
   {
     accessorKey: "instock",
@@ -37,6 +74,9 @@ export const columns: ColumnDef<ProductProps>[] = [
         </Button>
       )
     },
+    cell: ({ row }) => {
+      return <div className="text-center">{row.getValue('instock')}</div>
+    }
   },
   {
     accessorKey: "sold",
@@ -51,6 +91,9 @@ export const columns: ColumnDef<ProductProps>[] = [
         </Button>
       )
     },
+    cell: ({ row }) => {
+      return <div className="text-center">{row.getValue('sold')}</div>
+    }
   },
   {
     accessorKey: "price",
@@ -65,6 +108,9 @@ export const columns: ColumnDef<ProductProps>[] = [
         </Button>
       )
     },
+    cell: ({ row }) => {
+      return <div className="text-center">{formatToVND(row.getValue('price'))}</div>
+    }
   },
   {
     accessorKey: "createdAt",

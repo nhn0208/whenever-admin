@@ -64,7 +64,7 @@ export const getProductByModelId = async (modelId: string) => {
     }
 }
 
-export const updateProductById = async (body : any)=> {
+export const updateProductById = async (body : {})=> {
     try {
         let path = '/products/update'
         const response = await httpRequest.patch(path,body)

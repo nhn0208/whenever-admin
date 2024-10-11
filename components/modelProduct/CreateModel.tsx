@@ -71,7 +71,7 @@ const CreateModel = () => {
                 <FormItem>
                   <FormLabel>Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="Enter collection's name" {...field} />
+                    <Input placeholder="Enter model's name" {...field} />
                   </FormControl>
                 </FormItem>
               )}

@@ -30,17 +30,6 @@ const ProductList = () => {
             <ProductDataTable data={products} columns={columns} sendDataToParent={setProductDetail}/>
           : <>No item found</>
         }
-        {/* {
-          productDetail && productDetail.name && 
-          <ProductCard collection={productDetail} setReload={setReloadPage} />
-        } */}
-        <div 
-          className={cn('absolute w-screen h-screen inset-0 m-auto bg-gray-400 opacity-40 z-5', !productDetail && 'hidden')}
-          onClick={()=>{
-            setProductDetail(undefined)
-          }}
-        >
-        </div>
       </div>
     </>
   )

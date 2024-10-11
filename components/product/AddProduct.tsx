@@ -92,35 +92,31 @@ const AddProduct = (
                             </>
                         )
                     }
-                    {
-                        products && products.length > 0 && (
-                            <div className='flex items-center space-x-4'>
-                                <Label>Size:</Label>
-                                <Button  
-                                    className={cn(size=='Size S' ? 'bg-gray-500': 'bg-white', 'text-black border border-black')}
-                                    onClick={()=>setSize('Size S')}
-                                    disabled={products?.some(value => value.size == 'Size S')}
-                                >
-                                    Size S
-                                </Button>
-                                <Button  
-                                    className={cn(size=='Size M' ? 'bg-gray-500': 'bg-white', 'text-black border border-black')}
-                                    onClick={()=>setSize('Size M')}
-                                    disabled={products?.some(value => value.size == 'Size M')}
-                                >
-                                    Size M
-                                </Button>
-                                <Button  
-                                    className={cn(size=='Size L' ? 'bg-gray-500': 'bg-white', 'text-black border border-black')}
-                                    onClick={()=>setSize('Size L')}
-                                    disabled={products?.some(value => value.size == 'Size L')}
-                                >
-                                    Size L
-                                </Button>
-                            </div>
-                        )
-                    }
                     
+                    <div className='flex items-center space-x-4'>
+                        <Label>Size:</Label>
+                        <Button  
+                            className={cn(size=='Size S' ? 'bg-gray-500': 'bg-white', 'text-black border border-black')}
+                            onClick={()=>setSize('Size S')}
+                            disabled={products?.some(value => value.size == 'Size S')}
+                        >
+                            Size S
+                        </Button>
+                        <Button  
+                            className={cn(size=='Size M' ? 'bg-gray-500': 'bg-white', 'text-black border border-black')}
+                            onClick={()=>setSize('Size M')}
+                            disabled={products?.some(value => value.size == 'Size M')}
+                        >
+                            Size M
+                        </Button>
+                        <Button  
+                            className={cn(size=='Size L' ? 'bg-gray-500': 'bg-white', 'text-black border border-black')}
+                            onClick={()=>setSize('Size L')}
+                            disabled={products?.some(value => value.size == 'Size L')}
+                        >
+                            Size L
+                        </Button>
+                    </div>               
                     <div className='w-full flex justify-end' >
                         <Button disabled={!selectModel} onClick={()=>{
                             handleAdd()

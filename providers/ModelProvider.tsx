@@ -24,7 +24,7 @@ const ModelProvider = ({ children }: { children: React.ReactNode }) => {
 export const useModel = () => {
   const context = useContext(ModelContext);
 
-  if(!context) throw new Error('useAudio must be used within an AudioProvider');
+  if(!context) throw new Error('useModel must be used within a ModelProvider');
 
   return context;
 }

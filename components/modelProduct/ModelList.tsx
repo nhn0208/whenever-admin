@@ -7,7 +7,7 @@ import { cn } from '@/lib/utils'
 import { columns } from './columns'
 
 // import ui components
-import { DataTable } from './DataTable'
+import { ModelDataTable } from './DataTable'
 import { useCategoryList } from '@/providers/CategoryProvider'
 import { useModel } from '@/providers/ModelProvider'
 import CreateModel from '@/components/modelProduct/CreateModel'
@@ -26,7 +26,7 @@ const ProductList = () => {
       <div className='w-full flex flex-col border-2 border-black rounded-sm mt-5'>
         {
           models && categoryList && models.length > 0 ? 
-            <DataTable data={models} categoryList={categoryList} columns={columns} sendDataToParent={setModelDetail}/>
+            <ModelDataTable data={models} categoryList={categoryList} setReload={setReload} columns={columns} sendDataToParent={setModelDetail}/>
           : <>No item found</>
         }
         {

@@ -23,7 +23,7 @@ const CategoryProvider = ({ children }: { children: React.ReactNode }) => {
 export const useCategoryList = () => {
   const context = useContext(CategoryContext);
 
-  if(!context) throw new Error('useAudio must be used within an AudioProvider');
+  if(!context) throw new Error('useCategoryList must be used within an CategoryProvider');
 
   return context;
 }

@@ -5,7 +5,7 @@ export const getAllModel = async () => {
     try {
         let path = '/models'
         const response = await httpRequest.get(path);
-        console.log(response);
+        //console.log(response);
         
         return response.data;
     } catch (error) {
@@ -18,7 +18,7 @@ export const addNewModel = async (values: any) => {
         let path = '/models/create'
         const response = await httpRequest.post(path,values)
         //console.log(response)
-        
+        return response.data
     }catch (error) {
         console.log("Error: ", error);
         
@@ -58,6 +58,18 @@ export const updateModelById = async (body : {})=> {
         
         return response.data
     }catch(error){
+        console.log(error)
+    }
+}
+
+export const deleteModelById = async (id: string) => {
+    try {
+        let path = `/models/delete/${id}`
+        const response = await httpRequest.del(path)
+        //console.log(response)
+        
+    }
+    catch(error) {
         console.log(error)
     }
 }

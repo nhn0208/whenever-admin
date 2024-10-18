@@ -9,6 +9,7 @@ export interface ProductProps {
     _id: string,
     collectionId: string,
     slug: string,
+    modelSlug: string,
 }
 export interface ModelProps {
     name: string,

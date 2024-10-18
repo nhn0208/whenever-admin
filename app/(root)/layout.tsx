@@ -6,7 +6,7 @@ const RootLayout = (
   return (
     <div className='w-full'>
         <Sidebar/>
-        <div className='ml-[200px]'>
+        <div className=''>
             {children}
         </div>
     </div>

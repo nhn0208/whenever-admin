@@ -46,6 +46,7 @@ const AddProduct = (
                 price: selectModel.price,
                 size: size,
                 modelId: selectModel._id,
+                modelSlug: selectModel.slug,
             }
             addNewProduct(body)
             .then(()=>setReloadPage(prev=>!prev))

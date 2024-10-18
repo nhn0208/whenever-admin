@@ -104,7 +104,14 @@ const ModelCard = ({ model, categoryList, setReload } : ModelCardProps) => {
             <Button 
               variant={"secondary"}
               className={cn(!editMode && 'hidden')}
-              onClick={()=>setEditMode(false)}
+              onClick={()=>{
+                setEditMode(false)
+                setModelName(model.name)
+                setModelDescription(model.description)
+                setModelCategory(model.category)
+                setModelImage(model.image)
+                setPrice(model.price)
+              }}
             >
               Cancel
             </Button>

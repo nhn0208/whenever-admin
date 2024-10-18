@@ -4,7 +4,7 @@ import React from 'react'
 const ProductsPage = () => {
   return (
     <div className='w-full h-screen relative'>
-      <div className='w-3/4 pt-10 mx-40'>
+      <div className='w-full pt-10 mx-auto'>
         <ProductList/>
       </div>
     </div>
